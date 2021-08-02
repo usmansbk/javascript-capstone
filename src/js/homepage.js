@@ -1,5 +1,9 @@
+export const countItems = (items) => items.length;
+
 const displayItems = ({ meals = [], likeMeal }) => {
   const main = document.querySelector('main');
+  const mealsCounter = document.getElementById('meal-counter');
+  mealsCounter.innerText = countItems(meals);
 
   const grid = document.createElement('div');
   grid.classList.add('grid');
