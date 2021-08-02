@@ -37,7 +37,7 @@ export const fetchLikes = async (appId) => {
   try {
     const likes = await response.json();
     return likes;
-  } catch(error) {
+  } catch (error) {
     return [];
   }
 };
