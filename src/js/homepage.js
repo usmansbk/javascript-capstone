@@ -1,6 +1,6 @@
 export const countItems = (items) => items.length;
 
-const displayItems = ({ meals = [], likeMeal }) => {
+const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
   const main = document.querySelector('main');
   const mealsCounter = document.getElementById('meal-counter');
   mealsCounter.innerText = countItems(meals);
@@ -37,7 +37,7 @@ const displayItems = ({ meals = [], likeMeal }) => {
     const counter = card.querySelector('[data-id="likes"]');
 
     commentsButton.addEventListener('click', () => {
-      console.log(id);
+      onPressCommentsButton(id);
     });
 
     likeButton.addEventListener('click', async () => {

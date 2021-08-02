@@ -1,4 +1,5 @@
 import displayHomePage from './homepage.js';
+import displayCommentsPopup from './comments.js';
 import * as API from './api.js';
 
 export default async () => {
@@ -19,5 +20,7 @@ export default async () => {
 
   const likeMeal = (mealId) => API.likeMeal({ appId, mealId });
 
-  displayHomePage({ meals: formattedMeals, likeMeal });
+  const onPressCommentsButton = (mealId) => displayCommentsPopup({ mealId, appId });
+
+  displayHomePage({ meals: formattedMeals, likeMeal, onPressCommentsButton });
 };
