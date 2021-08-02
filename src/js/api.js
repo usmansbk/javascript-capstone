@@ -24,7 +24,7 @@ export const createApp = async () => {
 
   if (!appId) {
     const response = await post('apps/');
-    appId = await response.json();
+    appId = await response.text();
     localStorage.setItem('appId', appId);
   }
 
