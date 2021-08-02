@@ -141,3 +141,36 @@ button:active {
   justify-content: center;
   min-width: max-content;
 }
+
+/* Comments popup window */
+.comments-window {
+  top: 0;
+  position: fixed;
+  width: 99vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close {
+  align-self: flex-end;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.details-image {
+  height: 300px;
+  margin: 20px auto;
+}
+
+
+.instructions {
+  font-size: 0.7rem;
+}
