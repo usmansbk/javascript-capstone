@@ -14,7 +14,6 @@ const view = `
   </nav>
 </header>
 <main class="app-body bg-primary text-white">
-  <h1>Hello Webpack!</h1>
 </main>
 <footer class="app-footer bg-primary-dark text-white">
   Created by Microverse under CC license
