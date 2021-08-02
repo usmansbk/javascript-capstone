@@ -132,11 +132,12 @@ button:active {
 .card-header {
   display: flex;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .like-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: fit-content;
+  min-width: max-content;
 }
