@@ -1,10 +1,12 @@
-const displayItems = ({ meals = [] }) => {
+const displayItems = ({ meals = [], likeMeal }) => {
   const main = document.querySelector('main');
 
   const grid = document.createElement('div');
   grid.classList.add('grid');
 
-  meals.forEach(({ id, name, src, likes = 0 }) => {
+  meals.forEach(({
+    id, name, src, likes = 0,
+  }) => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
@@ -28,13 +30,18 @@ const displayItems = ({ meals = [] }) => {
 
     const commentsButton = card.querySelector('[data-id="comments"]');
     const likeButton = card.querySelector('[data-id="like-meal"]');
+    const counter = card.querySelector('[data-id="likes"]');
 
     commentsButton.addEventListener('click', () => {
       console.log(id);
     });
 
-    likeButton.addEventListener('click', () => {
-      console.log('Like', id);
+    likeButton.addEventListener('click', async () => {
+      const isLiked = true || await likeMeal();
+
+      if (isLiked) {
+        counter.innerText = Number.parseInt(counter.innerText, 10) + 1;
+      }
     });
 
     grid.appendChild(card);

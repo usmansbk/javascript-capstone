@@ -10,7 +10,7 @@ const post = async (endpoint, body = {}) => {
     },
   });
 
-  return response.json();
+  return response;
 };
 
 export const fetchMeals = async () => {
@@ -23,7 +23,8 @@ export const createApp = async () => {
   let appId = localStorage.getItem('appId');
 
   if (!appId) {
-    appId = await post('apps/');
+    const response = await post('apps/');
+    appId = await response.json();
     localStorage.setItem('appId', appId);
   }
 
@@ -34,4 +35,12 @@ export const fetchLikes = async (appId) => {
   const response = await fetch(`${INVOLVEMENT_BASE_URL}${appId}/likes`);
 
   return response.json();
-}
+};
+
+export const likeMeal = async ({ appId, mealId }) => {
+  const response = await post(`apps/${appId}/likes`, {
+    item_id: mealId,
+  });
+
+  return response.status === 201;
+};

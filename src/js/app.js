@@ -17,5 +17,7 @@ export default async () => {
     meal.likes = involvement.likes;
   });
 
-  displayHomePage({ meals: formattedMeals });
+  const likeMeal = (mealId) => API.likeMeal({ appId, mealId });
+
+  displayHomePage({ meals: formattedMeals, likeMeal });
 };
