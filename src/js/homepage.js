@@ -12,6 +12,12 @@ const displayItems = ({ meals = [] }) => {
             <div class="card-body">
                 <div class="card-header">
                     <h4>${name}</h4>
+                    <div class="like-button">
+                        <button>
+                            <span class="material-icons">favorite_border</span>
+                        </button>
+                        <p><span data-id="likes">0</span> Likes</p>
+                    </div>
                 </div>
                 <div class="card-buttons">
                     <button class="primary-button">Comments</button>
