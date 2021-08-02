@@ -24,7 +24,7 @@ export const createApp = async () => {
 
   if (!appId) {
     const response = await post('apps/');
-    appId = await response.json();
+    appId = await response.text();
     localStorage.setItem('appId', appId);
   }
 
@@ -32,7 +32,7 @@ export const createApp = async () => {
 };
 
 export const fetchLikes = async (appId) => {
-  const response = await fetch(`${INVOLVEMENT_BASE_URL}${appId}/likes`);
+  const response = await fetch(`${INVOLVEMENT_BASE_URL}apps/${appId}/likes`);
 
   return response.json();
 };

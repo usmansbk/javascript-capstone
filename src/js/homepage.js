@@ -49,7 +49,7 @@ const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
     });
 
     likeButton.addEventListener('click', async () => {
-      const isLiked = true || await likeMeal();
+      const isLiked = await likeMeal(id);
 
       if (isLiked) {
         counter.innerText = Number.parseInt(counter.innerText, 10) + 1;
