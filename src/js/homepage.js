@@ -1,5 +1,31 @@
 export const countItems = (items) => items.length;
 
+const displayModal = () => {
+  const modal = document.createElement('div');
+  modal.classList.add('text-white');
+  modal.innerHTML = `
+    <div class="overlay"></div>
+    <div class="modal">
+      <div id="modal-content"></div>
+      <button data-id="close" class="modal-close-button">
+        <span class="material-icons text-white fs-large">close</span>
+      </button>
+    </div>
+  `;
+
+  const root = document.getElementById('root');
+  root.classList.add('blur');
+
+  modal.querySelector('[data-id="close"]').addEventListener('click', () => {
+    document.body.removeChild(modal);
+    root.classList.remove('blur');
+    document.body.classList.remove('scroll-off');
+  });
+
+  document.body.classList.add('scroll-off');
+  document.body.appendChild(modal);
+};
+
 const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
   const main = document.querySelector('main');
   const mealsCounter = document.getElementById('meal-counter');
@@ -37,6 +63,7 @@ const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
     const counter = card.querySelector('[data-id="likes"]');
 
     commentsButton.addEventListener('click', () => {
+      displayModal();
       onPressCommentsButton(id);
     });
 
