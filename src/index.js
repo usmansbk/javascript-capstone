@@ -7,9 +7,9 @@ const view = `
   <nav class="navbar">
     <a href="./"><img src=${Logo} alt="" class="logo" /></a>
     <ul class="nav">
-      <li><a>Meals (<span id="meal-counter">0</span>)</a></li>
-      <li><a>Categories</a></li>
-      <li><a>Areas</a></li>
+      <li><a href="#meals">Meals (<span id="meal-counter">0</span>)</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#areas">Areas</a></li>
     </ul>
   </nav>
 </header>
