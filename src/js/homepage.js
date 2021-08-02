@@ -37,7 +37,6 @@ const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
     const counter = card.querySelector('[data-id="likes"]');
 
     commentsButton.addEventListener('click', async () => {
-      console.log('1. Btn clicked!');
       const popup = document.createElement('div');
       popup.id = 'comment-popup';
       popup.className = 'comments-window bg-primary text-white';
@@ -45,7 +44,7 @@ const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
       main.append(popup);
       main.querySelector('#close').addEventListener('click', () => {
         main.removeChild(main.querySelector('#comment-popup'));
-      })
+      });
     });
 
     likeButton.addEventListener('click', async () => {

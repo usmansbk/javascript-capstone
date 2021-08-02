@@ -1,4 +1,4 @@
-const displayCommentsPopup = async ({ mealId, appId }) => {
+const displayCommentsPopup = async ({ mealId }) => {
   const mealInfo = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
   const formattedInfo = await mealInfo.json();
   const meal = formattedInfo.meals[0];
