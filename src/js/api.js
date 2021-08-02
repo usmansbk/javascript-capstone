@@ -34,7 +34,12 @@ export const createApp = async () => {
 export const fetchLikes = async (appId) => {
   const response = await fetch(`${INVOLVEMENT_BASE_URL}apps/${appId}/likes`);
 
-  return response.json();
+  try {
+    const likes = await response.json();
+    return likes;
+  } catch (error) {
+    return [];
+  }
 };
 
 export const likeMeal = async ({ appId, mealId }) => {
