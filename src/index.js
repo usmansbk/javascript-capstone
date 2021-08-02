@@ -6,6 +6,11 @@ const view = `
 <header class="app-bar bg-primary-dark text-white">
   <nav class="navbar">
     <a href="./"><img src=${Logo} alt="" class="logo" /></a>
+    <ul class="nav">
+      <li><a>Meals (<span id="meal-counter">0</span>)</a></li>
+      <li><a>Categories</a></li>
+      <li><a>Areas</a></li>
+    </ul>
   </nav>
 </header>
 <main class="app-body bg-primary">
