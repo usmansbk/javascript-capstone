@@ -14,7 +14,7 @@ export default async () => {
   }));
 
   likes.forEach((involvement) => {
-    const meal = formattedMeals[involvement.item_id];
+    const meal = formattedMeals.find((elem) => elem.id === involvement.item_id);
     meal.likes = involvement.likes;
   });
 
