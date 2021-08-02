@@ -13,10 +13,12 @@ const view = `
     </ul>
   </nav>
 </header>
-<main class="app-body bg-primary">
+<main class="app-body bg-primary text-white">
   <h1>Hello Webpack!</h1>
 </main>
-<footer class="app-footer">Footer</footer>
+<footer class="app-footer bg-primary-dark text-white">
+  Created by Microverse under CC license
+</footer>
 `;
 
 const root = document.getElementById('root');
