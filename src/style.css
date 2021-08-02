@@ -191,3 +191,38 @@ button:active {
 .blur {
   filter: blur(24px);
 }
+
+/* Comments */
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details img {
+  height: 400px;
+}
+
+.meal-info {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+}
+
+.details h2 {
+  margin: 1rem 0;
+}
+
+.meal-info span {
+  margin-right: 1rem;
+}
+
+.meal-info a {
+  text-decoration: underline;
+}
+
+.label {
+  color: #d57d1f;
+}
