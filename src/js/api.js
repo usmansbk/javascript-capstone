@@ -49,3 +49,9 @@ export const likeMeal = async ({ appId, mealId }) => {
 
   return response.status === 201;
 };
+
+export const getMealById = async (id) => {
+  const response = await fetch(`${MEAL_BASE_URL}/lookup.php?i=${id}`);
+  const { meals } = await response.json();
+  return meals[0];
+};

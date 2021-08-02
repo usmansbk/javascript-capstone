@@ -143,35 +143,86 @@ button:active {
   min-width: max-content;
 }
 
-/* Comments popup window */
-.comments-window {
-  top: 0;
+/* Modal */
+.modal,
+.overlay {
   position: fixed;
-  width: 99vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: transparent;
 }
 
-.wrapper {
-  padding: 1rem;
+.modal {
+  overflow: auto;
+}
+
+.overlay {
+  background-color: #2d2013;
+  mix-blend-mode: multiply;
+}
+
+#modal-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  padding: 40px;
+  gap: 40px;
+}
+
+.modal-close-button {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 48px;
+}
+
+.scroll-off {
+  overflow: hidden;
+}
+
+.fs-large {
+  font-size: 72px;
+}
+
+.blur {
+  filter: blur(24px);
+}
+
+/* Comments */
+.details {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.close {
-  align-self: flex-end;
-  cursor: pointer;
-  margin: 15px;
+.details img {
+  height: 400px;
 }
 
-.details-image {
-  height: 300px;
-  margin: 20px auto;
+.meal-info {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
 }
 
+.details h2 {
+  margin: 1rem 0;
+}
 
-.instructions {
-  font-size: 0.7rem;
+.meal-info span {
+  margin-right: 1rem;
+}
+
+.meal-info a {
+  text-decoration: underline;
+}
+
+.label {
+  color: #d57d1f;
 }

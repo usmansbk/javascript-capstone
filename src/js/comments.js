@@ -1,20 +1,22 @@
+import * as API from './api.js';
+
 const displayCommentsPopup = async ({ mealId }) => {
-  const mealInfo = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
-  const formattedInfo = await mealInfo.json();
-  const meal = formattedInfo.meals[0];
-  return `
-  <div class='wrapper'>
-  <div id="close" class="close"><span class="material-icons" >
-  close
-  </span></div>
-  <img src='${meal.strMealThumb}' class="details-image">
-  <h2>${meal.strMeal}</h2>
-  <div class="meal-info">
-    <div><span>Area: </span><span>${meal.strArea}</span></div>
-    <div><span>Category: </span><span>${meal.strCategory}</span></div>
-    <span>Instructions: </span><span class="instructions">${meal.strInstructions}</span>
-  </div>
-  </div>`;
+  const meal = await API.getMealById(mealId);
+  const modal = document.querySelector('.modal');
+  const details = document.createElement('div');
+  details.classList.add('details');
+
+  details.innerHTML = `
+    <img src='${meal.strMealThumb}' class="details-image">
+    <h2>${meal.strMeal}</h2>
+    <div class="meal-info">
+      <div><span class="label">Category: </span><span>${meal.strCategory}</span></div>
+      <div><span class="label">Area: </span><span>${meal.strArea}</span></div>
+      <div><span class="label">Recipe: </span><a href='${meal.strSource}' target="blank">Recipe Link</a></div>
+      <div><span class="label">Video Instruction: </span><a href='${meal.strYoutube}' target="blank">YouTube Link</a></div>
+    </div>
+    `;
+  modal.append(details);
 };
 
 export default displayCommentsPopup;
