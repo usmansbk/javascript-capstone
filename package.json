@@ -1,7 +1,7 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "javascript-capstone",
   "version": "1.0.0",
-  "description": "Simple yet powerful webpack boilerplate.",
+  "description": "Capstone Project 2",
   "private": true,
   "scripts": {
     "test": "jest --coverage",
