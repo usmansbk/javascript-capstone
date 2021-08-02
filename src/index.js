@@ -1,17 +1,23 @@
 import app from './js/app.js';
 import './style.css';
-import Logo from './img/logo.svg';
+import Logo from './img/logo.png';
 
 const view = `
 <header class="app-bar bg-primary-dark text-white">
   <nav class="navbar">
     <a href="./"><img src=${Logo} alt="" class="logo" /></a>
+    <ul class="nav">
+      <li><a>Meals (<span id="meal-counter">0</span>)</a></li>
+      <li><a>Categories</a></li>
+      <li><a>Areas</a></li>
+    </ul>
   </nav>
 </header>
-<main class="app-body bg-primary">
-  <h1>Hello Webpack!</h1>
+<main class="app-body bg-primary text-white">
 </main>
-<footer class="app-footer">Footer</footer>
+<footer class="app-footer bg-primary-dark text-white">
+  Created by Microverse under CC license
+</footer>
 `;
 
 const root = document.getElementById('root');

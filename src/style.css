@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -41,7 +42,7 @@ button {
 }
 
 .app-footer {
-  padding: 8px 16px;
+  padding: 16px;
 }
 
 .navbar {
@@ -49,6 +50,12 @@ button {
   align-items: center;
   margin: 0 16px;
   height: 100%;
+  gap: 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
 }
 
 .logo {
@@ -57,11 +64,11 @@ button {
 
 /* Colors */
 .bg-primary {
-  background-color: bisque;
+  background-color: #2d2013;
 }
 
 .bg-primary-dark {
-  background-color: brown;
+  background-color: #23180d;
 }
 
 .text-white {
