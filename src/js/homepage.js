@@ -4,7 +4,7 @@ const displayItems = ({ meals = [] }) => {
   const grid = document.createElement('div');
   grid.classList.add('grid');
 
-  meals.forEach(({ id, name, src }) => {
+  meals.forEach(({ id, name, src, likes = 0 }) => {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
@@ -16,7 +16,7 @@ const displayItems = ({ meals = [] }) => {
                         <button data-id="like-meal">
                             <span class="material-icons">favorite_border</span>
                         </button>
-                        <p><span data-id="likes">0</span> Likes</p>
+                        <p><span data-id="likes">${likes}</span> Likes</p>
                     </div>
                 </div>
                 <div class="card-buttons">
