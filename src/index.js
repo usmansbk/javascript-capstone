@@ -1,6 +1,6 @@
 import app from './js/app.js';
 import './style.css';
-import Logo from './img/logo.svg';
+import Logo from './img/logo.png';
 
 const view = `
 <header class="app-bar bg-primary-dark text-white">
