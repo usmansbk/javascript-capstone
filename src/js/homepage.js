@@ -1,4 +1,4 @@
-export const countItems = (items) => items.length;
+export const countMeals = (items) => items.length;
 
 const displayModal = () => {
   const modal = document.createElement('div');
@@ -26,10 +26,10 @@ const displayModal = () => {
   document.body.appendChild(modal);
 };
 
-const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
+const displayItems = ({ meals = [], onPressLikeButton, onPressCommentsButton }) => {
   const main = document.querySelector('main');
   const mealsCounter = document.getElementById('meal-counter');
-  mealsCounter.innerText = countItems(meals);
+  mealsCounter.innerText = countMeals(meals);
 
   const grid = document.createElement('div');
   grid.classList.add('grid');
@@ -68,7 +68,7 @@ const displayItems = ({ meals = [], likeMeal, onPressCommentsButton }) => {
     });
 
     likeButton.addEventListener('click', async () => {
-      const isLiked = await likeMeal(id);
+      const isLiked = await onPressLikeButton(id);
 
       if (isLiked) {
         counter.innerText = Number.parseInt(counter.innerText, 10) + 1;
