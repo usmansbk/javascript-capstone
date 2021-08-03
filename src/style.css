@@ -247,14 +247,9 @@ button:active {
   gap: 15px;
 }
 
-/* .form h3 {
-  align-self: center;
-} */
-
 .form input,
 .form textarea,
 .form button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
-
