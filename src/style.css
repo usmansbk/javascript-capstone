@@ -202,7 +202,8 @@ button:active {
   margin: 24px;
 }
 
-.involvement-container section, form {
+.involvement-container section,
+form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -239,7 +240,8 @@ textarea {
   resize: none;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border: 1px solid #d57d1f;
 }
