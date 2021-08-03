@@ -58,8 +58,16 @@ export const getMealById = async (id) => {
 
 export const getComments = async (appId, itemId) => {
   const response = await fetch(`${INVOLVEMENT_BASE_URL}apps/${appId}/comments?item_id=${itemId}`);
-  if (response.status === 400) return [];
 
-  const comments = await response.json();
-  return comments;
+  if (response.status === 400) {
+    return [];
+  }
+  return response.json();
+};
+
+export const createComment = async ({ appId, mealId, data }) => {
+  const endpoint = `apps/${appId}/comments?item_id=${mealId}`;
+  const response = await post(endpoint, data);
+
+  return response.status === 201;
 };
