@@ -1,7 +1,7 @@
 const MEAL_BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
 const INVOLVEMENT_BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
 
-export const post = (endpoint, body = {}) => fetch(`${INVOLVEMENT_BASE_URL}${endpoint}`, {
+const post = (endpoint, body = {}) => fetch(`${INVOLVEMENT_BASE_URL}${endpoint}`, {
   method: 'POST',
   body: JSON.stringify(body),
   headers: {
