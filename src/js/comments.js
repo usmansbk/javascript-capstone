@@ -9,7 +9,7 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
     <div class="involvement-container">
       <section>
         <img src='${meal.strMealThumb}' class="meal-image" />
-        <h2>${meal.strMeal}</h2>
+        <h2 class="section-title">${meal.strMeal}</h2>
         <ul class="meal-info">
           <li><span class="label">Category:</span> ${meal.strCategory}</li>
           <li><span class="label">Area:</span> ${meal.strArea}</li>
@@ -21,12 +21,14 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
         <h3 class="section-title">Comments (<span id="comment-count">0</span>)</h3>
         <ul id='comment-list'></ul>
       </section>
-      <form>
+      <section>
         <h3 class="section-title">Add a comment</h3>
-        <input type="text" placeholder='Your name' required />
-        <textarea id="text" name="text" rows="4" placeholder="Your insights" required></textarea>
-        <button type="submit" class="primary-button">Comment</button>
-      </form>
+        <form>
+          <input type="text" placeholder='Your name' required />
+          <textarea id="text" name="text" rows="4" placeholder="Your insights" required></textarea>
+          <button type="submit" class="primary-button">Comment</button>
+        </form>
+      </section>
     </div>
    `;
 

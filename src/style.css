@@ -178,7 +178,7 @@ button:active {
   position: fixed;
   right: 0;
   top: 0;
-  margin: 48px;
+  margin: 16px;
 }
 
 .scroll-off {
@@ -186,7 +186,7 @@ button:active {
 }
 
 .fs-large {
-  font-size: 72px;
+  font-size: 54px;
 }
 
 .blur {
@@ -199,17 +199,18 @@ button:active {
   flex-direction: column;
   gap: 40px;
   align-items: flex-start;
+  margin: 24px;
 }
 
-.involvement-container section {
+.involvement-container section, form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: flex-start;
+  width: 100%;
 }
 
 .meal-image {
-  height: 200px;
+  width: 100%;
 }
 
 .meal-info {
@@ -225,13 +226,6 @@ button:active {
 
 .label {
   color: #d57d1f;
-}
-
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
 }
 
 .section-title {
@@ -276,20 +270,8 @@ input:focus, textarea:focus {
     padding: 40px;
   }
 
-  .involvement-container {
-    align-items: center;
-  }
-
-  .involvement-container section {
-    align-items: center;
-  }
-
   .section-title {
     text-align: center;
-  }
-  
-  form {
-    width: 50%;
   }
 
   .meal-image {
@@ -298,5 +280,17 @@ input:focus, textarea:focus {
 
   .meal-info {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .fs-large {
+    font-size: 72px;
+  }
+
+  .modal-close-button {
+    margin: 48px;
+  }
+
+  form {
+    width: 50%;
   }
 }
