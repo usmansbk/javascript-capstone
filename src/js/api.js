@@ -63,3 +63,9 @@ export const getComments = async (appId, itemId) => {
   const comments = await response.json();
   return comments;
 };
+
+export const createComment = async (newComment, appId, mealId) => {
+  const endpoint = `apps/${appId}/comments?item_id=${mealId}`;
+  const response = await post(endpoint, newComment);
+  return response;
+};

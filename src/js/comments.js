@@ -1,15 +1,12 @@
 import * as API from './api.js';
 
-export const countComments = async (appId, mealId) => {
-  const comment = await API.getComments(appId, mealId);
-  return comment.length;
-};
+export const countComments = async (comment) => comment.length;
 
 const renderComments = async (appId, mealId) => {
   const comment = await API.getComments(appId, mealId);
   return `
   <div class="comments">
-  <h3>Comments (<span id="comment-count">${await countComments(appId, mealId)}</span>)</h3>
+  <h3>Comments (<span id="comment-count">${await countComments(comment)}</span>)</h3>
   <ul id='comment-list'>
    ${comment.map((comments) => `<li class="comment-line"><span>${comments.creation_date}</span> <span>${comments.username}: ${comments.comment}</span></li>`).join('')}
   </ul>
@@ -54,17 +51,15 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
   `;
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const endpoint = `apps/${appId}/comments?item_id=${mealId}`;
-    const body = {
+    const newComment = {
       item_id: mealId,
       username: event.target.children[1].value,
       comment: event.target.children[2].value,
     };
-    const response = await API.post(endpoint, body);
+    const response = await API.createComment(newComment, appId, mealId);
     if (response.status === 201) {
       commentSection.innerHTML = await renderComments(appId, mealId);
-      event.target.children[1].value = '';
-      event.target.children[2].value = '';
+      form.reset();
       event.target.children[1].focus();
     }
   });
