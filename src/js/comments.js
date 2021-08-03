@@ -3,7 +3,7 @@ import * as API from './api.js';
 export const countComments = (comments = []) => comments.length;
 
 const displayCommentsPopup = async ({ mealId, appId }) => {
-  const meal = await API.getMealById(mealId);console.log(meal);
+  const meal = await API.getMealById(mealId);
   const modal = document.querySelector('#modal-content');
   const details = document.createElement('div');
   details.classList.add('details');

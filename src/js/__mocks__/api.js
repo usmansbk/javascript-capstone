@@ -6,8 +6,8 @@ export const fetchMeals = () => Promise.resolve(new Array(30).fill({
 
 export const getComments = () => Promise.resolve(new Array(4).fill({
   item_id: 52767,
-  username: "Jane",
-  comment: "Hello"
+  username: 'Jane',
+  comment: 'Hello',
 }));
 
 export default {};
