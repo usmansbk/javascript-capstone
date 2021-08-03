@@ -1,5 +1,9 @@
 import * as API from './api.js';
 
+export const countComments = async (appId, mealId) => {
+  const comment = await API.getComments(appId, mealId);
+  return comment.length;
+};
 
 const renderComments = async (appId, mealId) => {
   const comment = await API.getComments(appId, mealId);
