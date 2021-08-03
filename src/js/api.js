@@ -1,17 +1,13 @@
 const MEAL_BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
 const INVOLVEMENT_BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
 
-export const post = async (endpoint, body = {}) => {
-  const response = await fetch(`${INVOLVEMENT_BASE_URL}${endpoint}`, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
-
-  return response;
-};
+export const post = (endpoint, body = {}) => fetch(`${INVOLVEMENT_BASE_URL}${endpoint}`, {
+  method: 'POST',
+  body: JSON.stringify(body),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+});
 
 export const fetchMeals = async () => {
   const response = await fetch(`${MEAL_BASE_URL}/search.php?f=b`);
