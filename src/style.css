@@ -204,7 +204,6 @@ button:active {
 }
 
 .meal-info {
-  width: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -215,8 +214,14 @@ button:active {
   margin: 1rem 0;
 }
 
+.details h3 {
+  margin: 2rem 0 1rem;
+  align-self: center;
+  text-align: center;
+}
+
 .meal-info span {
-  margin-right: 1rem;
+  margin: 1rem 0 0.5rem;
 }
 
 .meal-info a {
@@ -225,4 +230,26 @@ button:active {
 
 .label {
   color: #d57d1f;
+}
+
+.comment-line {
+  padding: 5px;
+}
+
+.comment-line span {
+  margin-right: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.form input,
+.form textarea,
+.form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }
