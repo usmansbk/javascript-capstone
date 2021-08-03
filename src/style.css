@@ -225,6 +225,12 @@ form {
   text-decoration: underline;
 }
 
+.involvement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .label {
   color: #d57d1f;
 }
