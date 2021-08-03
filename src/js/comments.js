@@ -16,19 +16,19 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
       <div><span class="label">Area: </span><span>${meal.strArea}</span></div>
       <div><span class="label">Recipe: </span><a href='${meal.strSource}' target="blank">Recipe Link</a></div>
       <div><span class="label">Video Instruction: </span><a href='${meal.strYoutube}' target="blank">YouTube Link</a></div>
-      <div class="details">
-        <div class="comments">
-          <h3>Comments (<span id="comment-count">0</span>)</h3>
-          <ul id='comment-list'></ul>
-      </div>
-      </div>
-      <form>
-        <h3>Add a comment</h3>
-        <input type="text" placeholder='Your name' reqiured>
-        <textarea id="text" name="text" rows="4" cols="50" placeholder="Your insights" reqiured></textarea>
-        <button type="submit" class="button primary-button">Comment</button>
-      </form>
     </div>
+    <div class="details">
+      <div class="comments">
+        <h3>Comments (<span id="comment-count">0</span>)</h3>
+        <ul id='comment-list'></ul>
+    </div>
+    </div>
+    <form>
+      <h3>Add a comment</h3>
+      <input type="text" placeholder='Your name' reqiured>
+      <textarea id="text" name="text" rows="4" placeholder="Your insights" reqiured></textarea>
+      <button type="submit" class="primary-button">Comment</button>
+    </form>
    `;
 
   const renderComments = async () => {
