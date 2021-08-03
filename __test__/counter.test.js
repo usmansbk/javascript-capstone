@@ -9,7 +9,7 @@ const appId = 'ocnJ2hC1raf2nyITSPeo';
 const mealId = 52767;
 
 describe('Counter', () => {
-  test('should count the number of items', async () => {
+  test('should count the number of meals', async () => {
     const items = await fetchMeals();
 
     const count = countMeals(items);
