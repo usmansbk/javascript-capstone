@@ -171,7 +171,6 @@ button:active {
   flex-direction: column;
   width: 100%;
   margin: auto;
-  padding: 40px;
   gap: 40px;
 }
 
@@ -195,16 +194,18 @@ button:active {
 }
 
 /* Comments */
-.involvement-container,
-section {
+.involvement-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  gap: 40px;
+  align-items: flex-start;
 }
 
-.involvement-container {
-  gap: 40px;
+.involvement-container section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 .meal-image {
@@ -226,15 +227,15 @@ section {
   color: #d57d1f;
 }
 
-.text-center {
-  text-align: center;
-}
-
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.section-title {
+  text-align: left;
 }
 
 input,
@@ -272,6 +273,19 @@ input:focus, textarea:focus {
 
   #modal-content {
     width: 50%;
+    padding: 40px;
+  }
+
+  .involvement-container {
+    align-items: center;
+  }
+
+  .involvement-container section {
+    align-items: center;
+  }
+
+  .section-title {
+    text-align: center;
   }
   
   form {
