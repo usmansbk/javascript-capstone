@@ -55,3 +55,9 @@ export const getMealById = async (id) => {
   const { meals } = await response.json();
   return meals[0];
 };
+
+export const getComments = async (appId, itemId) => {
+  const response = await fetch(`${INVOLVEMENT_BASE_URL}apps/${appId}/comments?item_id=${itemId}`);
+  const { comments } = await response.json();
+  return comments;
+}
