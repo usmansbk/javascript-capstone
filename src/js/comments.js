@@ -41,8 +41,7 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
 
     comments.forEach((involvement) => {
       const li = document.createElement('li');
-      li.classList.add('comment-line');
-      li.innerHTML = `<span>${involvement.creation_date}</span> <span>${involvement.username}: ${involvement.comment}</span>`;
+      li.innerHTML = `${involvement.creation_date} ${involvement.username}: ${involvement.comment}`;
       list.appendChild(li);
     });
   };

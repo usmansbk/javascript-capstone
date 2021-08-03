@@ -169,7 +169,7 @@ button:active {
 #modal-content {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   margin: auto;
   padding: 40px;
   gap: 40px;
@@ -201,14 +201,14 @@ button:active {
   align-items: center;
 }
 
-.details img {
-  height: 400px;
+.details-image {
+  height: 200px;
 }
 
 .meal-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
   gap: 15px;
 }
 
@@ -234,16 +234,14 @@ button:active {
   color: #d57d1f;
 }
 
-.comment-line {
-  padding: 5px;
-}
-
-.comment-line span {
-  margin-right: 10px;
+#comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 form {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -275,5 +273,21 @@ textarea {
   .grid {
     width: 80%;
     grid-template-columns: auto auto auto;
+  }
+
+  #modal-content {
+    width: 50%;
+  }
+  
+  form {
+    width: 50%;
+  }
+
+  .details-image {
+    height: 400px;
+  }
+
+  .meal-info {
+    grid-template-columns: 1fr 1fr;
   }
 }
