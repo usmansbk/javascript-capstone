@@ -1,7 +1,7 @@
 const MEAL_BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
 const INVOLVEMENT_BASE_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
 
-const post = async (endpoint, body = {}) => {
+export const post = async (endpoint, body = {}) => {
   const response = await fetch(`${INVOLVEMENT_BASE_URL}${endpoint}`, {
     method: 'POST',
     body: JSON.stringify(body),
@@ -58,6 +58,8 @@ export const getMealById = async (id) => {
 
 export const getComments = async (appId, itemId) => {
   const response = await fetch(`${INVOLVEMENT_BASE_URL}apps/${appId}/comments?item_id=${itemId}`);
-  const { comments } = await response.json();
+  if (response.status === 400) return [];
+
+  const comments = await response.json();
   return comments;
-}
+};

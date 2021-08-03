@@ -1,9 +1,20 @@
 import * as API from './api.js';
 
+
+const renderComments = async (appId, mealId) => {
+  const comment = await API.getComments(appId, mealId);
+  return `
+  <div class="comments">
+  <h3>Comments (<span id="comment-count">${await countComments(appId, mealId)}</span>)</h3>
+  <ul id='comment-list'>
+   ${comment.map((comments) => `<li class="comment-line"><span>${comments.creation_date}</span> <span>${comments.username}: ${comments.comment}</span></li>`).join('')}
+  </ul>
+</div>
+`;
+};
+
 const displayCommentsPopup = async ({ mealId, appId }) => {
   const meal = await API.getMealById(mealId);
-  const comment = [{date: '10/01/2021', userName: 'Tom', text: "Wow, super delicious"}, {date: '19/01/2021', userName: 'Jack', text: "Super delicious"}] || await API.getComments(appId, mealId);
-  console.log(comment);
   const modal = document.querySelector('#modal-content');
   const details = document.createElement('div');
   details.classList.add('details');
@@ -17,22 +28,44 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
       <div><span class="label">Recipe: </span><a href='${meal.strSource}' target="blank">Recipe Link</a></div>
       <div><span class="label">Video Instruction: </span><a href='${meal.strYoutube}' target="blank">YouTube Link</a></div>
     </div>
+   `;
 
-    <div>
-      <h2>Comments (<span id="comment-count">0</span>)</h2>
-      <ul id='comment-list'>
-        
-      </ul>
-    </div>
-    `;
-  const commentList = details.querySelector('#comment-list');
-  const showComments = (commentArray) => commentArray.map((comments) => `<li>${comments.date} ${comments.userName} ${comments.text}</li>`).join('');
-  // const showComments = (commentArray) => commentArray.map((comments) => `<li>${comments.date} ${comments.userName} ${comments.text}</li>`).join('');
-  // commentList.innerHTML = showComments(comment);
-  commentList.innerHTML = showComments([{date: '10/01/2021', userName: 'Tom', text: "Wow, super delicious"}, {date: '19/01/2021', userName: 'Jack', text: "Super delicious"}]);
+  const commentSection = document.createElement('div');
+  commentSection.classList.add('details');
+  commentSection.innerHTML = await renderComments(appId, mealId);
+
+  details.append(commentSection);
+
   modal.append(details);
-  
-  
+
+  const form = document.createElement('form');
+  form.classList.add('form');
+  form.action = '#';
+  form.method = 'post';
+  form.innerHTML = `
+    <h3>Add a comment</h3>
+    <input type="text" placeholder='Your name' reqiured>
+    <textarea id="text" name="text" rows="4" cols="50" placeholder="Your insights" reqiured></textarea>
+    <button type="submit" class="button primary-button">Comment</button>
+  `;
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const endpoint = `apps/${appId}/comments?item_id=${mealId}`;
+    const body = {
+      item_id: mealId,
+      username: event.target.children[1].value,
+      comment: event.target.children[2].value,
+    };
+    const response = await API.post(endpoint, body);
+    if (response.status === 201) {
+      commentSection.innerHTML = await renderComments(appId, mealId);
+      event.target.children[1].value = '';
+      event.target.children[2].value = '';
+      event.target.children[1].focus();
+    }
+  });
+
+  details.append(form);
 };
 
 export default displayCommentsPopup;
