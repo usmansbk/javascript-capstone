@@ -19,13 +19,13 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
       </section>
       <section>
         <h3 class="section-title">Comments (<span id="comment-count">0</span>)</h3>
-        <ul id='comment-list'></ul>
+        <ul class="involvement-list" id='comment-list'></ul>
       </section>
       <section>
         <h3 class="section-title">Add a comment</h3>
         <form>
-          <input type="text" placeholder='Your name' required />
-          <textarea id="text" name="text" rows="4" placeholder="Your insights" required></textarea>
+          <input type="text" name="username" placeholder='Your name' required />
+          <textarea name="comment" rows="4" placeholder="Your insights" required></textarea>
           <button type="submit" class="primary-button">Comment</button>
         </form>
       </section>
@@ -52,8 +52,8 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
     event.preventDefault();
     const data = {
       item_id: mealId,
-      username: event.target.children[1].value,
-      comment: event.target.children[2].value,
+      username: form.elements.username.value,
+      comment: form.elements.comment.value,
     };
     const isCreated = await API.createComment({
       appId,
