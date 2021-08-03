@@ -49,7 +49,7 @@ button:active {
   width: 100%;
   top: 0;
   left: 0;
-  height: 80px;
+  height: 120px;
 }
 
 .app-body {
@@ -57,7 +57,7 @@ button:active {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-top: 80px;
+  margin-top: 120px;
   align-items: center;
 }
 
@@ -67,10 +67,12 @@ button:active {
 
 .navbar {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin: 0 16px;
   height: 100%;
-  gap: 40px;
+  gap: 20px;
 }
 
 .nav {
@@ -99,11 +101,11 @@ button:active {
 
 .grid {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
   grid-auto-rows: 1fr;
   grid-column-gap: 40px;
   grid-row-gap: 80px;
-  width: 80%;
+  width: 100%;
   justify-items: center;
 }
 
@@ -167,9 +169,8 @@ button:active {
 #modal-content {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   margin: auto;
-  padding: 40px;
   gap: 40px;
 }
 
@@ -177,7 +178,7 @@ button:active {
   position: fixed;
   right: 0;
   top: 0;
-  margin: 48px;
+  margin: 16px;
 }
 
 .scroll-off {
@@ -185,7 +186,7 @@ button:active {
 }
 
 .fs-large {
-  font-size: 72px;
+  font-size: 54px;
 }
 
 .blur {
@@ -193,35 +194,31 @@ button:active {
 }
 
 /* Comments */
-.details {
+.involvement-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 24px;
 }
 
-.details img {
-  height: 400px;
+.involvement-container section,
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.meal-image {
+  width: 100%;
 }
 
 .meal-info {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto;
+  grid-auto-rows: 1fr;
   gap: 15px;
-}
-
-.details h2 {
-  margin: 1rem 0;
-}
-
-.details h3 {
-  margin: 2rem 0 1rem;
-  align-self: center;
-  text-align: center;
-}
-
-.meal-info span {
-  margin: 1rem 0 0.5rem;
 }
 
 .meal-info a {
@@ -232,19 +229,8 @@ button:active {
   color: #d57d1f;
 }
 
-.comment-line {
-  padding: 5px;
-}
-
-.comment-line span {
-  margin-right: 10px;
-}
-
-form {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.section-title {
+  text-align: left;
 }
 
 input,
@@ -252,4 +238,61 @@ textarea {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #d57d1f;
+}
+
+/* Large screen devices */
+@media screen and (min-width: 992px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+
+  .app-bar {
+    height: 80px;
+  }
+
+  .app-body {
+    margin-top: 80px;
+  }
+
+  .grid {
+    width: 80%;
+    grid-template-columns: auto auto auto;
+  }
+
+  #modal-content {
+    width: 50%;
+    padding: 40px;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .meal-image {
+    height: 400px;
+  }
+
+  .meal-info {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fs-large {
+    font-size: 72px;
+  }
+
+  .modal-close-button {
+    margin: 48px;
+  }
+
+  form {
+    width: 50%;
+  }
 }

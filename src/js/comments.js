@@ -5,49 +5,47 @@ export const countComments = (comments = []) => comments.length;
 const displayCommentsPopup = async ({ mealId, appId }) => {
   const meal = await API.getMealById(mealId);
   const modal = document.querySelector('#modal-content');
-  const details = document.createElement('div');
-  details.classList.add('details');
-
-  details.innerHTML = `
-    <img src='${meal.strMealThumb}' class="details-image">
-    <h2>${meal.strMeal}</h2>
-    <div class="meal-info">
-      <div><span class="label">Category: </span><span>${meal.strCategory}</span></div>
-      <div><span class="label">Area: </span><span>${meal.strArea}</span></div>
-      <div><span class="label">Recipe: </span><a href='${meal.strSource}' target="blank">Recipe Link</a></div>
-      <div><span class="label">Video Instruction: </span><a href='${meal.strYoutube}' target="blank">YouTube Link</a></div>
-    </div>
-    <div class="details">
-      <div class="comments">
-        <h3>Comments (<span id="comment-count">0</span>)</h3>
+  modal.innerHTML = `
+    <div class="involvement-container">
+      <section>
+        <img src='${meal.strMealThumb}' class="meal-image" />
+        <h2 class="section-title">${meal.strMeal}</h2>
+        <ul class="meal-info">
+          <li><span class="label">Category:</span> ${meal.strCategory}</li>
+          <li><span class="label">Area:</span> ${meal.strArea}</li>
+          <li><span class="label">Recipe:</span> <a href='${meal.strSource}' target="blank">Recipe Link</a></li>
+          <li><span class="label">Video Instruction:</span> <a href='${meal.strYoutube}' target="blank">YouTube Link</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3 class="section-title">Comments (<span id="comment-count">0</span>)</h3>
         <ul id='comment-list'></ul>
+      </section>
+      <section>
+        <h3 class="section-title">Add a comment</h3>
+        <form>
+          <input type="text" placeholder='Your name' required />
+          <textarea id="text" name="text" rows="4" placeholder="Your insights" required></textarea>
+          <button type="submit" class="primary-button">Comment</button>
+        </form>
+      </section>
     </div>
-    </div>
-    <form>
-      <h3>Add a comment</h3>
-      <input type="text" placeholder='Your name' required>
-      <textarea id="text" name="text" rows="4" placeholder="Your insights" required></textarea>
-      <button type="submit" class="primary-button">Comment</button>
-    </form>
    `;
 
   const renderComments = async () => {
     const comments = await API.getComments(appId, mealId);
-    const counter = details.querySelector('#comment-count');
+    const counter = modal.querySelector('#comment-count');
     counter.innerText = countComments(comments);
 
-    const list = details.querySelector('ul');
+    const list = modal.querySelector('#comment-list');
     list.innerHTML = '';
 
     comments.forEach((involvement) => {
       const li = document.createElement('li');
-      li.classList.add('comment-line');
-      li.innerHTML = `<span>${involvement.creation_date}</span> <span>${involvement.username}: ${involvement.comment}</span>`;
+      li.innerHTML = `${involvement.creation_date} ${involvement.username}: ${involvement.comment}`;
       list.appendChild(li);
     });
   };
-
-  modal.append(details);
 
   const form = document.querySelector('form');
   form.addEventListener('submit', async (event) => {
