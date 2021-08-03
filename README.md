@@ -1,12 +1,12 @@
-# Project Name
+# JavaScript Capstone
 
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
-> One paragraph statement about the project.
+> API based webapp
 
-![screenshot](./app_screenshot.jpeg)
+![screenshot](./app_screenshot.png)
 
-Additional description about the project and its features.
+The JavaScript capstone project is about building a web application based on an external API. The API provides data about a specific topic. The web app consist of 2 interfaces.
 
 ## Built With
 
@@ -16,7 +16,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://usmansbk.github.io/repo_name)
+[Live Demo Link](https://usmansbk.github.io/javascript-capstone)
 
 ## Getting Started
 
@@ -29,8 +29,8 @@ To get a local copy up and running follow these simple example steps.
 ### Setup
 
 ```bash
-git clone https://github.com/usmansbk/repo_name.git
-cd ./repo_name
+git clone https://github.com/usmansbk/javascript-capstone.git
+cd ./javascript-capstone
 ```
 
 ### Install
@@ -64,6 +64,11 @@ npm test
 - GitHub: [@usmansbk](https://github.com/usmansbk)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/usman-suleiman-82b444140/)
 
+👤 **Tolibjon Tolibov**
+
+- GitHub: [@toliboff](https://github.com/toliboff)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/tolibjon-tolibov/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -77,6 +82,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Microverse
+- [TheMealDB](https://www.themealdb.com/api.php)
+- [Involvement API](https://www.notion.so/Involvement-API-869e60b5ad104603aa6db59e08150270)
 
 ## 📝 License
 
