@@ -19,7 +19,7 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
       </section>
       <section>
         <h3 class="section-title">Comments (<span id="comment-count">0</span>)</h3>
-        <ul id='comment-list'></ul>
+        <ul class="involvement-list" id='comment-list'></ul>
       </section>
       <section>
         <h3 class="section-title">Add a comment</h3>
