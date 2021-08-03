@@ -2,11 +2,7 @@ import displayHomePage from './homepage.js';
 import displayCommentsPopup from './comments.js';
 import * as API from './api.js';
 
-export default async () => {
-  const appId = await API.createApp();
-  const meals = await API.fetchMeals();
-  const likes = await API.fetchLikes(appId);
-
+const formatMeals = ({ meals = [], likes = [] }) => {
   const formattedMeals = meals.map(({ idMeal: id, strMeal: name, strMealThumb: src }) => ({
     id,
     name,
@@ -20,9 +16,17 @@ export default async () => {
     }
   });
 
-  const likeMeal = (mealId) => API.likeMeal({ appId, mealId });
+  return formattedMeals;
+};
 
-  const onPressCommentsButton = (mealId) => displayCommentsPopup({ mealId, appId });
+export default async () => {
+  const appId = await API.createApp();
+  const meals = await API.fetchMeals();
+  const likes = await API.fetchLikes(appId);
 
-  displayHomePage({ meals: formattedMeals, likeMeal, onPressCommentsButton });
+  displayHomePage({
+    meals: formatMeals({ meals, likes }),
+    onPressLikeButton: (mealId) => API.likeMeal({ appId, mealId }),
+    onPressCommentsButton: (mealId) => displayCommentsPopup({ mealId, appId }),
+  });
 };
