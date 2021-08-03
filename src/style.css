@@ -50,6 +50,7 @@ button:active {
   top: 0;
   left: 0;
   height: 120px;
+  z-index: 400;
 }
 
 .app-body {
