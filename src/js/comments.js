@@ -25,8 +25,8 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
     </div>
     <form>
       <h3>Add a comment</h3>
-      <input type="text" placeholder='Your name' reqiured>
-      <textarea id="text" name="text" rows="4" placeholder="Your insights" reqiured></textarea>
+      <input type="text" placeholder='Your name' required>
+      <textarea id="text" name="text" rows="4" placeholder="Your insights" required></textarea>
       <button type="submit" class="primary-button">Comment</button>
     </form>
    `;
