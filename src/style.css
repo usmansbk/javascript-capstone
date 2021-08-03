@@ -124,6 +124,12 @@ button:active {
 .card-image {
   width: 100%;
   height: 100%;
+  transition: transform 1000ms;
+}
+
+.card-image:hover {
+  cursor: pointer;
+  transform: scale(1.03);
 }
 
 .card-buttons {
