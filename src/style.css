@@ -16,6 +16,25 @@ li {
 
 button {
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  opacity: 0.6;
+}
+
+.primary-button {
+  height: 48px;
+  background-color: #d57d1f;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
 }
 
 /* Default Layout */
@@ -30,7 +49,8 @@ button {
   width: 100%;
   top: 0;
   left: 0;
-  height: 80px;
+  height: 120px;
+  z-index: 400;
 }
 
 .app-body {
@@ -38,7 +58,8 @@ button {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-top: 80px;
+  margin-top: 120px;
+  align-items: center;
 }
 
 .app-footer {
@@ -47,10 +68,12 @@ button {
 
 .navbar {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin: 0 16px;
   height: 100%;
-  gap: 40px;
+  gap: 20px;
 }
 
 .nav {
@@ -73,4 +96,216 @@ button {
 
 .text-white {
   color: white;
+}
+
+/* Meals */
+
+.grid {
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-rows: 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 80px;
+  width: 100%;
+  justify-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  transition: transform 1000ms;
+}
+
+.card-image:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.like-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: max-content;
+}
+
+/* Modal */
+.modal,
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: transparent;
+}
+
+.modal {
+  overflow: auto;
+}
+
+.overlay {
+  background-color: #2d2013;
+  mix-blend-mode: multiply;
+}
+
+#modal-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  gap: 40px;
+}
+
+.modal-close-button {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 16px;
+}
+
+.scroll-off {
+  overflow: hidden;
+}
+
+.fs-large {
+  font-size: 54px;
+}
+
+.blur {
+  filter: blur(24px);
+}
+
+/* Comments */
+.involvement-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 24px;
+}
+
+.involvement-container section,
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.meal-image {
+  width: 100%;
+}
+
+.meal-info {
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-rows: 1fr;
+  gap: 15px;
+}
+
+.meal-info a {
+  text-decoration: underline;
+}
+
+.involvement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  color: #d57d1f;
+}
+
+.section-title {
+  text-align: left;
+}
+
+input,
+textarea {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #d57d1f;
+}
+
+/* Large screen devices */
+@media screen and (min-width: 992px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+
+  .app-bar {
+    height: 80px;
+  }
+
+  .app-body {
+    margin-top: 80px;
+  }
+
+  .grid {
+    width: 80%;
+    grid-template-columns: auto auto auto;
+  }
+
+  #modal-content {
+    width: 50%;
+    padding: 40px;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .meal-image {
+    height: 400px;
+  }
+
+  .meal-info {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fs-large {
+    font-size: 72px;
+  }
+
+  .modal-close-button {
+    margin: 48px;
+  }
+
+  form {
+    width: 50%;
+  }
 }
