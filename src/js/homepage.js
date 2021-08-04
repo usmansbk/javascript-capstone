@@ -8,7 +8,7 @@ const displayModal = () => {
     <div class="modal">
       <div id="modal-content"></div>
       <button data-id="close" class="modal-close-button">
-        <span class="material-icons text-white fs-large">close</span>
+        <span class="material-icons text-secondary fs-large">close</span>
       </button>
     </div>
   `;
