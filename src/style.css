@@ -98,6 +98,10 @@ button:active {
   color: white;
 }
 
+.text-secondary {
+  color: #d57d1f;
+}
+
 /* Meals */
 
 .grid {
