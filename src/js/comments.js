@@ -64,7 +64,7 @@ const displayCommentsPopup = async ({ mealId, appId }) => {
     if (isCreated) {
       await renderComments();
       form.reset();
-      event.target.children[1].focus();
+      form.elements.username.focus();
     }
   });
 
